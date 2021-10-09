@@ -1,0 +1,8 @@
+package com.reactor.model;
+
+public class Persona {
+	private Integer idPersona;
+	private String nombre;
+	private integer edad;
+
+}
