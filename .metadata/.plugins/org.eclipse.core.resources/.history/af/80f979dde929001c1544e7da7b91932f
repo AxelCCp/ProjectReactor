@@ -1,0 +1,33 @@
+package com.reactor.operador.transformacion;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.reactor.DemoReactorApplication;
+import com.reactor.model.Persona;
+
+import reactor.core.publisher.Flux;
+
+public class Transformacion {
+
+	//OPERADORES DE TRANSFORMACIÓN
+	public void map() {
+		List <Persona> personas = new ArrayList<>();
+		personas.add(new Persona(1,"Nardiunus",2));
+		personas.add(new Persona(1,"Kaohuak",2));
+		personas.add(new Persona(1,"Zimlak",2));
+		personas.add(new Persona(1,"Fronox",2));
+		Flux.fromIterable(personas);
+	}
+	
+	
+	
+	
+	
+	
+	
+	private static final Logger log = LoggerFactory.getLogger(DemoReactorApplication.class);
+}

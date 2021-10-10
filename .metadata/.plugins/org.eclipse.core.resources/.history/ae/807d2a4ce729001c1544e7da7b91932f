@@ -1,0 +1,100 @@
+package com.reactor;
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.reactor.model.Persona;
+import com.reactor.operador.creacion.Creacion;
+
+import io.reactivex.Observable;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+
+//POR SER UNA APP EN CONSOLA, SE IMPLEMENTA CommandLineRunner
+
+@SpringBootApplication
+public class DemoReactorApplication implements CommandLineRunner{
+	
+	public static void main(String[] args) {
+		SpringApplication.run(DemoReactorApplication.class, args);		
+	}
+
+	//EN ESTE MÉTODO SE PONE LA LÓGICA Q SE QUIERE EJECUTAR. EN ESTE CASO EJECUTAMOS 2 FLUJOS DE PERSONA. 
+	@Override
+	public void run(String... args) throws Exception {
+		// TODO Auto-generated method stub
+		//EJECUTAMOS LOS FLUJOS
+				reactor();
+				rxjava2();
+				mono();
+				flux();
+				fluxMono();
+				Creacion app = new Creacion();
+				app.range();
+	}
+	
+
+	
+	//FLUJO CON SPRING
+	//MONO REPRESENTA EL FLUJO DE UN ELEMENTO.
+	//CON SUBSCRIBE() : AGREGAMOS EL FLUJO DE DATOS A LA CONSOLA.
+	//.doOnNext () : MÉTODO PARA HACER PROCESOS DE DEPURACIÓN O GENERAR ALGÚN MECANISMO MIENTRAS VAN LLEGANDO LOS DATOS.
+	public void reactor() {
+		Mono.just(new Persona(1, "Pig", 4))
+		.doOnNext(p -> {
+			//LÓGICA ADICIONAL
+			log.info("[REACTOR] Persona: " + p);
+		})
+		.subscribe(p -> log.info("[REACTOR] Persona: " + p));
+	}
+	
+	//FLUJO CON JAVA
+	public void rxjava2() {
+		Observable.just(new Persona(2, "Dog", 5))
+		.doOnNext(p -> log.info("[REACTOR] Persona: " + p))
+		.subscribe(p -> log.info("[RxJava2] Persona: " + p));;
+	}
+	
+	//MONO: REPRESENTA UN FLUJO DE DATOS DE TIPO ASYNCRONO QUE INDICA LA REPRESENTACIÓN DE UN SOLO ELEMENTO
+	public void mono() {
+		Mono.just(new Persona(3,"Cat",3)).subscribe(p -> log.info(p.toString()));
+	}
+	
+	//MONO: REPRESENTA UN FLUJO DE DATOS DE TIPO ASYNCRONO QUE INDICA LA REPRESENTACIÓN DE MÁS DE UN ELEMENTO
+	public void flux() {
+		List<Persona> personas = new ArrayList<>(); 
+		personas.add(new Persona(4, "Rabbit", 9));
+		personas.add(new Persona(5, "Bat", 2));
+		personas.add(new Persona(6, "Mouse", 1));
+		
+		//PARA CREAR FLUJO DE DATOS ASÍNCRONO CON LA COLECCIÓN
+		Flux.fromIterable(personas).subscribe(p -> log.info(p.toString()));
+	}
+	
+	
+	//MÉTODO Q PASA DE FLUX A MONO
+	public void fluxMono() {
+		List<Persona> personas = new ArrayList<>(); 
+		personas.add(new Persona(7, "Jirafa", 20));
+		personas.add(new Persona(8, "Zebra", 10));
+		personas.add(new Persona(9, "Impala", 4));
+		//ALMACENAMOS LOS DATOS EN UNA VARIABLE FLUX 
+		Flux <Persona> fx = Flux.fromIterable(personas);
+		//TRANSFORMA A LOS DATOS COMO SI TODO FUESE UN SOLO FLUJO DE INFORMACIÓN. UNA SOLA LISTA.
+		fx.collectList().subscribe(lista -> log.info(lista.toString()));
+		
+	}
+	
+	
+	
+	
+	
+	private static final Logger log = LoggerFactory.getLogger(DemoReactorApplication.class);
+}

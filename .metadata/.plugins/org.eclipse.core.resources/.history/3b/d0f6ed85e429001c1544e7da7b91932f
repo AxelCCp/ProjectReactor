@@ -1,0 +1,9 @@
+package com.reactor.operador.creacion;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class Creacion {
+
+	private final static Logger log =  LoggerFactory.getLogger(Creacion.class);
+}

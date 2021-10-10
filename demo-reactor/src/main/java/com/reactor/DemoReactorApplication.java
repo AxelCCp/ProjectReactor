@@ -11,6 +11,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.reactor.model.Persona;
+import com.reactor.operador.creacion.Creacion;
+import com.reactor.operador.transformacion.Transformacion;
 
 import io.reactivex.Observable;
 import reactor.core.publisher.Flux;
@@ -35,7 +37,15 @@ public class DemoReactorApplication implements CommandLineRunner{
 				mono();
 				flux();
 				fluxMono();
+				Creacion app = new Creacion();
+				app.range();
+				app.repeat();
+				app.repeat2();
+				Transformacion tr = new Transformacion();
+				tr.map();
 	}
+	
+
 	
 	//FLUJO CON SPRING
 	//MONO REPRESENTA EL FLUJO DE UN ELEMENTO.
@@ -85,8 +95,8 @@ public class DemoReactorApplication implements CommandLineRunner{
 		//TRANSFORMA A LOS DATOS COMO SI TODO FUESE UN SOLO FLUJO DE INFORMACIÓN. UNA SOLA LISTA.
 		fx.collectList().subscribe(lista -> log.info(lista.toString()));
 		
+		
 	}
-	
 	
 	
 	

@@ -1,0 +1,28 @@
+package com.reactor.operador.creacion;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.reactor.model.Persona;
+
+import reactor.core.publisher.Mono;
+
+public class Creacion {
+
+	private final static Logger log =  LoggerFactory.getLogger(Creacion.class);
+	
+	
+	//
+	public void justFrom() {
+		Mono.just(new Persona (1,"Gato", 7));
+		//Flux.fromIterable(coleccion);
+		//Observable.just(item);
+	}
+	
+	//PARA EXPRESAR FLUJOS VACÍOS
+	public void empty() {
+		Mono.empty();
+		Flux empty();
+	}
+	
+}
