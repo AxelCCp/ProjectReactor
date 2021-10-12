@@ -1,0 +1,30 @@
+package com.reactor.operador.error;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.reactor.model.Persona;
+import com.reactor.model.Venta;
+
+import reactor.core.publisher.Flux;
+
+public class ErrorOp {
+	
+	public void retry() {
+		
+			List<Persona> personas = new ArrayList<>();
+			personas.add(new Persona(1,"fronox",5));
+			personas.add(new Persona(1,"kaohuac",6));
+			personas.add(new Persona(3,"zimlak",7));
+			personas.add(new Persona(4,"flabuyín",8));
+			
+		}
+		
+	}
+	
+	private static final Logger log = LoggerFactory.getLogger(ErrorOp.class);
+}

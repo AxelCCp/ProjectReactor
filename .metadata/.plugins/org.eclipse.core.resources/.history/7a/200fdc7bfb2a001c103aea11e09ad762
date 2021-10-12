@@ -1,0 +1,9 @@
+package com.reactor.operador.combinacion;
+
+import org.slf4j.LoggerFactory;
+
+public class Combinacion {
+
+	private static Logger log = LoggerFactory.getLogger(Combinacion.class); 	
+	
+}

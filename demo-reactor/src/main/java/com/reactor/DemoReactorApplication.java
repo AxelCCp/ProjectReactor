@@ -10,8 +10,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.reactor.filtrado.Filtrado;
 import com.reactor.model.Persona;
+import com.reactor.operador.combinacion.Combinacion;
 import com.reactor.operador.creacion.Creacion;
+import com.reactor.operador.error.ErrorOp;
 import com.reactor.operador.transformacion.Transformacion;
 
 import io.reactivex.Observable;
@@ -43,6 +46,29 @@ public class DemoReactorApplication implements CommandLineRunner{
 				app.repeat2();
 				Transformacion tr = new Transformacion();
 				tr.map();
+				tr.map2();
+				tr.map3();
+				tr.flatMap();
+				tr.groupBy();
+				Filtrado filter = new Filtrado();
+				filter.filter();
+				filter.distinc();
+				filter.distinc2();
+				filter.take();
+				filter.takeLast();
+				filter.skip();
+				filter.skipLast();
+				Combinacion combinacion = new Combinacion();
+				combinacion.merge();
+				combinacion.merge2();
+				combinacion.zip();
+				combinacion.zipWith();
+				combinacion.zipWith2();
+				ErrorOp error = new ErrorOp();
+				error.retry();
+				error.errorReturn();
+				error.errorResume();
+				error.errorMap();
 	}
 	
 

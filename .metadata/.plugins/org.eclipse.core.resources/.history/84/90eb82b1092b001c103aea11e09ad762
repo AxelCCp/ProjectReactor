@@ -1,0 +1,5 @@
+package com.reactor.model;
+
+public class Venta {
+
+}

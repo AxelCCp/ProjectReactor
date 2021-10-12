@@ -1,0 +1,5 @@
+package com.reactor.operador.error;
+
+public class ErrorOp {
+
+}
