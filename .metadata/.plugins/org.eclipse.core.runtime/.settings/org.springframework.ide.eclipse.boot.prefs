@@ -1,11 +1,12 @@
 eclipse.preferences.version=1
-org.springframework.ide.eclipse.boot.wizard.PreferredSelections.artifactId=demo-reactor
+org.springframework.ide.eclipse.boot.wizard.PopularityTracker.webflux=1
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.artifactId=webflux-demo
 org.springframework.ide.eclipse.boot.wizard.PreferredSelections.bootVersion=2.5.5
-org.springframework.ide.eclipse.boot.wizard.PreferredSelections.description=Demo reactor project for Spring Boot
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.description=Demo webFlux
 org.springframework.ide.eclipse.boot.wizard.PreferredSelections.groupId=com.reactor
 org.springframework.ide.eclipse.boot.wizard.PreferredSelections.javaVersion=11
 org.springframework.ide.eclipse.boot.wizard.PreferredSelections.language=java
-org.springframework.ide.eclipse.boot.wizard.PreferredSelections.name=demo-reactor
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.name=webflux-demo
 org.springframework.ide.eclipse.boot.wizard.PreferredSelections.packageName=com.reactor
 org.springframework.ide.eclipse.boot.wizard.PreferredSelections.packaging=jar
 org.springframework.ide.eclipse.boot.wizard.PreferredSelections.type=MAVEN

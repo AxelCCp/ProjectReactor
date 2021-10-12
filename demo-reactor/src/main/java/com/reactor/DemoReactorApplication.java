@@ -13,8 +13,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.reactor.filtrado.Filtrado;
 import com.reactor.model.Persona;
 import com.reactor.operador.combinacion.Combinacion;
+import com.reactor.operador.condicional.Condicional;
 import com.reactor.operador.creacion.Creacion;
 import com.reactor.operador.error.ErrorOp;
+import com.reactor.operador.matematico.Matematico;
 import com.reactor.operador.transformacion.Transformacion;
 
 import io.reactivex.Observable;
@@ -69,6 +71,17 @@ public class DemoReactorApplication implements CommandLineRunner{
 				error.errorReturn();
 				error.errorResume();
 				error.errorMap();
+				Condicional condicional = new Condicional();
+				condicional.defaultIfEmpty();
+				condicional.defaultIfEmpty2();
+				condicional.takeUntil();
+				condicional.timeOut();
+				Matematico matematico = new Matematico();
+				matematico.average();
+				matematico.count();
+				matematico.min();
+				matematico.sum();
+				matematico.summarizing();
 	}
 	
 
